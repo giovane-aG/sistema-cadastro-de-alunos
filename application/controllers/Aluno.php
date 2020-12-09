@@ -11,8 +11,8 @@ class Aluno extends CI_Controller {
 		$config['upload_path'] = './uploads';
 		$config['allowed_types'] = '*';
 		$config['max_size']     = '512000';
-		$config['max_width']  = '2440';
-		$config['max_height']  = '1600';
+		$config['max_width']  = '0';
+		$config['max_height']  = '0';
 
 		$this->load->library('upload', $config);
 
