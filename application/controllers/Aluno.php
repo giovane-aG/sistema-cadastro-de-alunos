@@ -29,9 +29,23 @@ class Aluno extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 		$this->load->view('templates/js', $data);
 	}
-	
+
 	public function salvarAluno() {
 		$aluno = $this->input->post();
+
+		
+		$config['upload_path'] = './uploads';
+		$config['allowed_types'] = '*';
+		$config['max_size']     = '512000';
+		$config['max_width']  = '2440';
+		$config['max_height']  = '1600';
+
+		$this->load->library('upload', $config);
+
+		$this->upload->do_upload('foto');
+		$imagem = $this->upload->data();
+		$file_url = base_url("upload/{$imagem['file_name']}");
+		$aluno['foto'] = $file_url;
 
 		if ($this->Alunos_model->inserir($aluno)) {
 			$this->session->set_flashdata('sucesso', true);
