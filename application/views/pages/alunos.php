@@ -3,7 +3,7 @@
 		<h1 class="h2">Alunos</h1>
 		<div class="btn-toolbar mb-2 mb-md-0">
 			<div class="btn-group mr-2">
-				<a href="<?= base_url() ?>aluno/inserir" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus-square"></i> Aluno</a>
+				<a href="<?= base_url() ?>index.php/aluno/inserir" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus-square"></i> Aluno</a>
 			</div>
 		</div>
 	</div>
@@ -27,10 +27,10 @@
             <td><?= $aluno['endereco'] ?></td>
             <td><?= $aluno['foto'] ?></td>
 						<td>
-							<a href="<?= base_url() ?>aluno/editar/<?= $aluno['id'] ?>" class="btn btn-sm btn-warning">
+							<a href="<?= base_url() ?>index.php/aluno/editar/<?= $aluno['id'] ?>" class="btn btn-sm btn-warning">
 								<i class="fas fa-pencil-alt"></i>
 							</a>
-							<a href="<?= base_url() ?>aluno/deletar/<?= $aluno['id'] ?>" class="btn btn-sm btn-danger">
+							<a href="<?= base_url() ?>index.php/aluno/deletar/<?= $aluno['id'] ?>" class="btn btn-sm btn-danger">
 								<i class="fas fa-trash-alt"></i>
 							</a>
 						</td>
@@ -41,7 +41,7 @@
 		<?php if (!empty($this->session->flashdata('sucesso'))) : ?>
 			<div class="alert alert-success alert-dismissible">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<strong>Success!</strong> Indicates a successful or positive action.
+				<strong>Sucesso!</strong> ao salvar.
 			</div>
 		<?php endif; ?>
 	</div>

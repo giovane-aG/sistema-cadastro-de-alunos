@@ -9,9 +9,9 @@
 
 			<div class="col-md-12">
 				<?php if(isset($aluno)) : ?>
-					<form enctype="multipart/form-data" action="<?= base_url() ?>aluno/atualizarAluno/<?= $aluno['id'] ?>" method="post">
+					<form enctype="multipart/form-data" action="<?= base_url() ?>index.php/aluno/atualizarAluno/<?= $aluno['id'] ?>" method="post">
 				<?php else : ?>
-					<form enctype="multipart/form-data" action="<?= base_url() ?>aluno/salvarAluno" method="post">
+					<form enctype="multipart/form-data" action="<?= base_url() ?>index.php/aluno/salvarAluno" method="post">
 				<?php endif; ?>
 
 					<div class="col-md-6">
@@ -31,12 +31,12 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="category">Foto</label>
-							<input type="file" class="form-control" name="foto" id="category" placeholder="Category" value="<?= isset($aluno) ? $aluno["foto"] : "" ?>">
+							<input type="file" class="form-control" size="20" name="foto" id="category" placeholder="Category" value="<?= isset($aluno) ? $aluno["foto"] : "" ?>">
 						</div>
 					</div>
 					<div class="col-md-6">
-							<button type="submit" class="btn btn-success btn-xs"><i class="fas fa-check"></i> Save</button>
-							<a href="<?= base_url() ?>aluno" class="btn btn-danger btn-xs"><i class="fas fa-times"></i> Cancel</a>
+							<button type="submit" class="btn btn-success btn-xs"><i class="fas fa-check"></i> Salvar</button>
+							<a href="<?= base_url() ?>index.php/aluno" class="btn btn-danger btn-xs"><i class="fas fa-times"></i> Cancelar</a>
 						</div>
 					</div>
 				</form>
@@ -44,9 +44,3 @@
     </main>
   </div>
 </div>
-<!-- 
-	usar input file
-	adicionar multipart form data enctype
-	Pegar o caminho da foto e mover para view
-	Guardar o caminho da foto dentro da pasta view no bd
- -->
