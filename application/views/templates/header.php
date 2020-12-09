@@ -17,7 +17,7 @@
 		}
 		
 		img  {
-			height: 70px;
+			width: 120px;
 		}
 
 		@media (min-width: 768px) {
