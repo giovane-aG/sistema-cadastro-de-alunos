@@ -16,6 +16,7 @@
 					<th>Nome</th>
 					<th>Endereço</th>
 					<th>Foto</th>
+					<th>Ações</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -25,6 +26,14 @@
             <td><?= $aluno['nome'] ?></td>
             <td><?= $aluno['endereco'] ?></td>
             <td><?= $aluno['foto'] ?></td>
+						<td>
+							<a href="<?= base_url() ?>aluno/editar/<?= $aluno['id'] ?>" class="btn btn-sm btn-warning">
+								<i class="fas fa-pencil-alt"></i>
+							</a>
+							<a href="<?= base_url() ?>aluno/deletar/<?= $aluno['id'] ?>" class="btn btn-sm btn-danger">
+								<i class="fas fa-trash-alt"></i>
+							</a>
+						</td>
           </tr>
         <?php endforeach;?>
 			</tbody>
