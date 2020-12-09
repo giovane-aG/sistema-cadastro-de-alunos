@@ -1,5 +1,8 @@
 .DS_Store
 
+banco-de-dados.sql
+README.md
+
 application/cache/*
 !application/cache/index.html
 
