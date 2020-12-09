@@ -18,6 +18,11 @@ class Alunos_model extends CI_MODEL {
     $this->db->where('id', $id);
     return $this->db->update('alunos', $aluno);
   }
+
+  public function deletar($id) {
+    $this->db->where('id', $id);
+    return $this->db->delete('alunos');
+  }
 }
 
 
