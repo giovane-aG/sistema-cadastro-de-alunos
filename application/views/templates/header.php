@@ -15,6 +15,10 @@
 			-ms-user-select: none;
 			user-select: none;
 		}
+		
+		img  {
+			height: 70px;
+		}
 
 		@media (min-width: 768px) {
 			.bd-placeholder-img-lg {

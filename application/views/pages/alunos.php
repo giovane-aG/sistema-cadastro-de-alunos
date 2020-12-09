@@ -25,7 +25,7 @@
             <td><?= $aluno['id'] ?></td>
             <td><?= $aluno['nome'] ?></td>
             <td><?= $aluno['endereco'] ?></td>
-            <td><?= $aluno['foto'] ?></td>
+            <td><img alt="Foto" src="<?= $aluno['foto'] ?>"/></td>
 						<td>
 							<a href="<?= base_url() ?>index.php/aluno/editar/<?= $aluno['id'] ?>" class="btn btn-sm btn-warning">
 								<i class="fas fa-pencil-alt"></i>
@@ -41,7 +41,7 @@
 		<?php if (!empty($this->session->flashdata('sucesso'))) : ?>
 			<div class="alert alert-success alert-dismissible">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<strong>Sucesso!</strong> ao salvar.
+				<strong>Sucesso!</strong>
 			</div>
 		<?php endif; ?>
 	</div>
