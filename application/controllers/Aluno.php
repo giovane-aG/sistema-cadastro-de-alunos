@@ -7,17 +7,27 @@ class Aluno extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Alunos_model');
 		$this->load->library('session');
+
+		$config['upload_path'] = './uploads';
+		$config['allowed_types'] = '*';
+		$config['max_size']     = '512000';
+		$config['max_width']  = '2440';
+		$config['max_height']  = '1600';
+
+		$this->load->library('upload', $config);
+
 	}
 
 	public function index() {
 		$data['title'] = "Alunos";
 		$data['alunos'] = $this->Alunos_model->index();
-
+		
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/nav-top', $data);
 		$this->load->view('pages/alunos', $data);
 		$this->load->view('templates/footer', $data);
 		$this->load->view('templates/js', $data);
+		/* <?=$aluno['foto']?>*/
 	}
 
 	public function inserir() {
@@ -33,18 +43,10 @@ class Aluno extends CI_Controller {
 	public function salvarAluno() {
 		$aluno = $this->input->post();
 
-		
-		$config['upload_path'] = './uploads';
-		$config['allowed_types'] = '*';
-		$config['max_size']     = '512000';
-		$config['max_width']  = '2440';
-		$config['max_height']  = '1600';
-
-		$this->load->library('upload', $config);
-
 		$this->upload->do_upload('foto');
 		$imagem = $this->upload->data();
-		$file_url = base_url("upload/{$imagem['file_name']}");
+		$file_url = "uploads/{$imagem['file_name']}";
+		print_r($file_url);
 		$aluno['foto'] = $file_url;
 
 		if ($this->Alunos_model->inserir($aluno)) {
@@ -69,6 +71,12 @@ class Aluno extends CI_Controller {
 
 	public function atualizarAluno($id) {
 		$aluno = $this->input->post();
+
+		$this->upload->do_upload('foto');
+		$imagem = $this->upload->data();
+		$file_url = "uploads/{$imagem['file_name']}";
+		$aluno['foto'] = $file_url;
+		
 		$this->Alunos_model->editar($id, $aluno);
 		redirect(base_url());
 	}
