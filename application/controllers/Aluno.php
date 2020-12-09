@@ -41,4 +41,27 @@ class Aluno extends CI_Controller {
 			redirect(base_url('aluno/inserir'));
 		}
 	}
+
+	public function editar($id) {
+		$data['aluno'] = $this->Alunos_model->mostrar($id);
+		$data['title'] = 'Editar Aluno';
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/nav-top', $data);
+		$this->load->view('pages/inserir-aluno', $data);
+		$this->load->view('templates/footer', $data);
+		$this->load->view('templates/js', $data);
+	}
+
+	public function atualizarAluno($id) {
+		$aluno = $this->input->post();
+		$this->Alunos_model->editar($id, $aluno);
+		redirect(base_url());
+	}
+
+	public function deletar($id) {
+		$aluno = $this->input->post();
+		$this->Alunos_model->deletar($id);
+		redirect(base_url());
+	}
 }
