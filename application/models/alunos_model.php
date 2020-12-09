@@ -12,7 +12,12 @@ class Alunos_model extends CI_MODEL {
 
   	public function mostrar($id) {
 		return $this->db->get_where('alunos', array('id' => $id))->row_array();
-	}
+  }
+  
+  public function editar($id, $aluno) {
+    $this->db->where('id', $id);
+    return $this->db->update('alunos', $aluno);
+  }
 }
 
 
